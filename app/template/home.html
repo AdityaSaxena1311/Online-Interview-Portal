@@ -1,0 +1,42 @@
+<html>
+<body>
+<center>
+<br><br>
+<u><h2>Interview Creation Portal</h2></u>
+<br><br>
+<form action=create>
+<table>
+    <tr>
+        <th>Name of Meeting</th>
+        <th><input type="text" name="name" required></th>
+    </tr>
+    <tr>
+        <th>Start Time</th>
+        <th><input type="time" name="st" required></th>
+    </tr>
+    <tr>
+        <th>End Time</th>
+        <th><input type="time" name="et" required></th>
+    </tr>
+<tr>
+  <th>
+    Select Candidates:
+  </th>
+  <th>
+    {% for i in can %}
+    <input type="checkbox" name="{{i.name}}">
+    <label>{{i.name}}</label><br>
+    {% endfor %}
+  </th>
+</tr>
+</table>
+<br>
+<input type="submit" value="Create">
+</form>
+{{e1}}
+<br>
+<a href="View">View Interview</a><br><br>
+<a href="ed">Edit/Delete Interview</a>
+</center>
+</body>
+</html>

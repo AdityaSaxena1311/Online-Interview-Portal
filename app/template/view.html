@@ -1,0 +1,29 @@
+<html>
+<body>
+<center>
+<br><br>
+<u><h2>Interview List</h2></u>
+<br>
+<table border="1" width="40%">
+    <tr>
+      <th>Interview Id</th>
+      <th>Interview Name</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Candidates</th>
+    </tr>
+    {% for i in details %}
+    <tr>
+      <td>{{i.0}}</td>
+      <td>{{i.1}}</td>
+      <td>{{i.2}}</td>
+      <td>{{i.3}}</td>
+      <td>{{i.4}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<a href="back">Back</a>
+</center>
+</body>
+</html>

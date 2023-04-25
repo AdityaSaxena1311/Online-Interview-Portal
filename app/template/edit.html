@@ -1,0 +1,79 @@
+<html>
+<body>
+<center>
+{% if details %}
+<br><br>
+<u><h2>Interview List</h2></u>
+<br>
+<table border="1" width="40%">
+    <tr>
+      <th>Interview ID</th>
+      <th>Interview Name</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Candidates</th>
+      <th>Edit/Delete</th>
+    </tr>
+    {% for i in details %}
+    <tr>
+      <td>{{i.0}}</td>
+      <td>{{i.1}}</td>
+      <td>{{i.2}}</td>
+      <td>{{i.3}}</td>
+      <td>{{i.4}}</td>
+      <td>
+            <a href="edit?pid={{i.0}}">Edit/</a>
+            <a href="delete?pid={{i.0}}">Delete</a>
+    </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% if info %}
+<br><br>
+<u><h2>Edit Interview List</h2></u>
+<br>
+<form action=editc>
+  <table>
+    <tr>
+      <th>Interview Id</th>
+      <th><input type="text" name="id" value="{{info.0}}" readonly></th>
+    </tr>
+      <tr>
+          <th>Name of Meeting</th>
+          <th><input type="text" name="name" value="{{info.1}}"></th>
+      </tr>
+      <tr>
+          <th>Start Time</th>
+          <th><input type="time" name="st" value="{{info.2}}"></th>
+      </tr>
+      <tr>
+          <th>End Time</th>
+          <th><input type="time" name="et" value="{{info.3}}"></th>
+      </tr>
+  <tr>
+    <th>
+      Candidates:
+    </th>
+    <th>
+      {% for i in can %}
+      {% if i in req %}
+      <input type="checkbox" name="{{i.0}}" checked>
+      {% else %}
+      <input type="checkbox" name="{{i.0}}">
+      {% endif %}
+      <label>{{i.0}}</label><br>
+      {% endfor %}
+    </th>
+  </tr>
+  </table>
+  <input type="submit" value="Edit">
+  </form>
+  <br>
+  {{e1}}
+{% endif %}
+<br>
+<a href="back">Back</a>
+</center>
+</body>
+</html>
